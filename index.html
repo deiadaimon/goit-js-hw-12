@@ -4,11 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GOIT-JS-HW-12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     
     <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-d3b5fc92.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-eded45c0.js">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-4b066c51.css">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-cd9c9397.css">
   </head>
   <body>
+    <form class="form">
+      <input
+        class="input"
+        name="input"
+        type="text"
+        placeholder="Search images..."
+        required
+      />
+      <button class="search-button" type="submit">Search</button>
+    </form>
+    <p class="loader">Loading images, please wait...</p>
+    <ul class="gallery"></ul>
+    <button class="load-button" type="button">Load more</button>
+
     
   </body>
 </html>
