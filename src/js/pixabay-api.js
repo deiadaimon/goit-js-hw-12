@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-export function fetchRequest(name) {
+export function fetchRequest(inputValue) {
     const BASE_URL = 'https://pixabay.com/api/';
     const API_KEY = '43226276-a07a0c17e428cfffb021b9b05';
 
     const params = new URLSearchParams({
         key: API_KEY,
-        q: name,
+        q: inputValue,
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
