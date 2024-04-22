@@ -43,7 +43,7 @@ async function handleSubmit(event) {
         return;
     }
     try {
-        const data = await fetchRequest(inputValue);
+        const data = await fetchRequest(inputValue, currentPage);
         loader.style.display = 'none';
         if (data.totalHits === 0) {
             form.reset();
@@ -87,6 +87,7 @@ async function loadNextPage(event) {
         const data = await fetchRequest(inputValue, currentPage);
         const totalPages = Math.ceil(data.totalHits / itemsPerPage);
         gallery.insertAdjacentHTML('beforeend', createGalleryMarkup(data.hits));
+        lightbox.refresh();
         loader.style.display = 'none';
         if (currentPage === totalPages) {
             loadButton.style.display = 'none';

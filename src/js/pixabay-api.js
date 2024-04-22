@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function fetchRequest(inputValue) {
+export function fetchRequest(inputValue, currentPage) {
     const BASE_URL = 'https://pixabay.com/api/';
     const API_KEY = '43226276-a07a0c17e428cfffb021b9b05';
 
@@ -11,6 +11,7 @@ export function fetchRequest(inputValue) {
         orientation: 'horizontal',
         safesearch: true,
         per_page: 15,
+        page: currentPage,
     });
 
     return axios.get(`${BASE_URL}?${params.toString()}`)
