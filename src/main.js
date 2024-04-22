@@ -32,6 +32,7 @@ async function handleSubmit(event) {
     loader.style.display = 'block';
     loadButton.style.display = 'none';
     gallery.innerHTML = '';
+    currentPage = 1;
     if (inputValue === '') {
         loader.style.display = 'none';
         loadButton.style.display = 'none';
@@ -87,6 +88,14 @@ async function loadNextPage(event) {
         const data = await fetchRequest(inputValue, currentPage);
         const totalPages = Math.ceil(data.totalHits / itemsPerPage);
         gallery.insertAdjacentHTML('beforeend', createGalleryMarkup(data.hits));
+
+        const galleryCard = document.querySelector('.gallery-card');
+        const cardHeight = galleryCard.getBoundingClientRect().height;
+        window.scrollBy({
+            top: cardHeight * 2,
+            behavior: 'smooth',
+        });
+
         lightbox.refresh();
         loader.style.display = 'none';
         if (currentPage === totalPages) {
